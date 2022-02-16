@@ -16,7 +16,6 @@
 ### Association
  * has_many :products
  * has_many :purchases
- * has_one :shipping_address
 
 
 
@@ -25,15 +24,12 @@
 |----------------------|---------------------|--------------------------------|
 | product_name         | string              | null: false                    |
 | product_explanation  | text                | null: false                    |
-| product_situation    | boolean             | null: false                    |
-| product_category     | boolean             | null: false                    |
-| price                | boolean             | null: false                    |
+| price                | integer             | null: false                    |
 | user                 | references          | null: false, foreign_key: true |
-| shipping_address     | references          | null: false, foreign_key: true |
+| shipping_address     | references          | null: false                    |
 
 
 ### Association
- * has_one :purchase
  - belongs_to :user
  - belongs_to :shipping_address
 
@@ -43,27 +39,20 @@
 |--------------------|---------------------|--------------------------------|
 | user               | references          | null: false, foreign_key: true |
 | product            | references          | null: false, foreign_key: true |
-| shipping_addres    | references          | null: false, foreign_key: true |
-
 
 ### Association
- * has_one :product
+ - belongs_to :product
  - belongs_to :user
- - belongs_to :shipping_address
+ * has_one :shipping_address
 
 
-## shipping_address table
+## shipping_addresses table
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
-| shipping_charges   | boolean             | null: false                    |
-| shipment_source    | boolean             | null: false                    |
-| shipping_schedule  | boolean             | null: false                    |
-| user               | references          | null: false, foreign_key: true |
-| product            | references          | null: false, foreign_key: true |
-| purchase           | references          | null: false, foreign_key: true |
-
+| user_id            | integer             | null: false, foreign_key: true |
+| product_id         | integer             | null: false, foreign_key: true |
+| purchase_id        | integer             | null: false, foreign_key: true |
+  
 
 ### Association
- * has_one :user
- * has_many :products
  * has_many :purchases
