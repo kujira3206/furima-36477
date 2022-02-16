@@ -20,13 +20,18 @@
 
 
 ## products table
-| Column               | Type                | Options                        |
-|----------------------|---------------------|--------------------------------|
-| product_name         | string              | null: false                    |
-| product_explanation  | text                | null: false                    |
-| price                | integer             | null: false                    |
-| user                 | references          | null: false, foreign_key: true |
-| shipping_address     | references          | null: false                    |
+| Column                 | Type                | Options                        |
+|------------------------|---------------------|--------------------------------|
+| product_name           | string              | null: false                    |
+| product_explanation    | text                | null: false                    |
+| category_id            | integer             | null: false                    |
+| product_status_id      | integer             | null: false                    |
+| shipping_charge_id    | integer             | null: false                    |
+| shipping_area_id       | integer             | null: false                    |
+| ship_id                | integer             | null: false                    |
+| price                  | integer             | null: false                    |
+| user                   | references          | null: false, foreign_key: true |
+| shipping_addresses     | references          | null: false                    |
 
 
 ### Association
@@ -37,8 +42,8 @@
  ## purchases table
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
-| user               | references          | null: false, foreign_key: true |
-| product            | references          | null: false, foreign_key: true |
+| users              | references          | null: false, foreign_key: true |
+| products           | references          | null: false, foreign_key: true |
 
 ### Association
  - belongs_to :product
@@ -49,9 +54,7 @@
 ## shipping_addresses table
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
-| user_id            | integer             | null: false, foreign_key: true |
-| product_id         | integer             | null: false, foreign_key: true |
-| purchase_id        | integer             | null: false, foreign_key: true |
+| purchases          | references          | null: false, foreign_key: true |
   
 
 ### Association
