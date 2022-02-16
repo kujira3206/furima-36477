@@ -55,4 +55,4 @@
   
 
 ### Association
- * has_many :purchases
+ - belongs_to :purchases
