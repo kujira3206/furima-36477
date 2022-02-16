@@ -26,7 +26,7 @@
 | product_explanation    | text                | null: false                    |
 | category_id            | integer             | null: false                    |
 | product_status_id      | integer             | null: false                    |
-| shipping_charge_id    | integer             | null: false                    |
+| shipping_charge_id     | integer             | null: false                    |
 | shipping_area_id       | integer             | null: false                    |
 | ship_id                | integer             | null: false                    |
 | price                  | integer             | null: false                    |
@@ -36,14 +36,14 @@
 
 ### Association
  - belongs_to :user
- - belongs_to :shipping_address
+ - belongs_to :purchase
 
 
  ## purchases table
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
-| users              | references          | null: false, foreign_key: true |
-| products           | references          | null: false, foreign_key: true |
+| user               | references          | null: false, foreign_key: true |
+| product            | references          | null: false, foreign_key: true |
 
 ### Association
  - belongs_to :product
@@ -54,8 +54,13 @@
 ## shipping_addresses table
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
-| purchases          | references          | null: false, foreign_key: true |
-  
+| purchase           | references          | null: false, foreign_key: true |
+| zip_code           | string              | null: false                    |
+| prefectures        | string              | null: false                    |
+| minicipalities     | string              | null: false                    |
+| block_number       | string              | null: false                    |
+| building           | string              | null: false                    |
+| tel                | string              | null: false                    |
 
 ### Association
- - belongs_to :purchases
+ - belongs_to :purchase
