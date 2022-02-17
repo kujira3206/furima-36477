@@ -31,8 +31,6 @@
 | ship_id                | integer             | null: false                    |
 | price                  | integer             | null: false                    |
 | user                   | references          | null: false, foreign_key: true |
-| shipping_addresses     | references          | null: false                    |
-
 
 ### Association
  - belongs_to :user
