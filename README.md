@@ -56,10 +56,10 @@
 |--------------------|---------------------|--------------------------------|
 | purchase           | references          | null: false, foreign_key: true |
 | zip_code           | string              | null: false                    |
-| prefectures        | string              | null: false                    |
+| shipping_area_id   | integer             | null: false                    |
 | minicipalities     | string              | null: false                    |
 | block_number       | string              | null: false                    |
-| building           | string              | null: false                    |
+| building           | string              |                                |
 | tel                | string              | null: false                    |
 
 ### Association
