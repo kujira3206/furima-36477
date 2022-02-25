@@ -1,5 +1,5 @@
-class Shipping_area < ActiveHash::Base
-  self.date = [
+class ShippingArea < ActiveHash::Base
+  self.data = [
     {id: 1, name: '__' },
     {id: 2, name: '北海道' },
     {id: 3, name: '青森' },
@@ -51,6 +51,5 @@ class Shipping_area < ActiveHash::Base
    
   ]
   include ActiveHash::Associations
-  has_many :articles
-
+  has_many :products
 end

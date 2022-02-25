@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  
   def index
     @products = Product.order("created_at DESC")
   end
@@ -13,7 +14,8 @@ class ProductsController < ApplicationController
       redirect_to root_path
     else
       render :new
-    end  end
+    end
+  end
 
   private
 
