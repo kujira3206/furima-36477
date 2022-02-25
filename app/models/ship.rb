@@ -6,3 +6,7 @@ class Ship < ActiveHash::Base
     {id: 3, name: '４〜７日で発送' }
 
   ]
+  include ActiveHash::Associations
+  has_many :articles
+
+end
