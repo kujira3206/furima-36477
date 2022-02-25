@@ -1,15 +1,19 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @products = Product.order("created_at DESC")
   end
 
   def new
-    @product = Product.order("created_at DESC")
+    @product = Product.new
   end
 
   def create
-    Product.create(product_params)
-  end
+    @product = Product.new(product_params)
+    if @product.save
+      redirect_to root_path
+    else
+      render :new
+    end  end
 
   private
 
