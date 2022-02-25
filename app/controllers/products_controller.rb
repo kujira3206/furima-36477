@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
+    @product = Product.order("created_at DESC")
   end
 
   def create
