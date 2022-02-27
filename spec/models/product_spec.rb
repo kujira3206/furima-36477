@@ -66,12 +66,12 @@ RSpec.describe Product, type: :model do
       @product.valid?
       expect(@product.errors.full_messages).to include("User must exist")
     end
-    it "価格が¥300~¥9,999,999の間でないと保存できない" do
+    it "価格が¥300以上でないと保存できない" do
       @product.price = '0'
       @product.valid?
       expect(@product.errors.full_messages).to include()
     end
-    it "価格が¥300~¥9,999,999の間でないと保存できない" do
+    it "価格が¥9,999,999以下でないと保存できない" do
       @product.price = '10000000'
       @product.valid?
       expect(@product.errors.full_messages).to include()
