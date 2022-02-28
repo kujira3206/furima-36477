@@ -121,9 +121,8 @@
       <% if @products.present? %>
       <% @products.each do |product| %>
         <li class='list'>
-         <%= link_to "#" do %>
         <div class='item-img-content'>
-          <%= image_tag product.image, class: "item-img" if product.image.attached? %>
+          <%= link_to image_tag(product.image, class: "item-img" ) , product_path(product.id)%>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
@@ -141,7 +140,6 @@
             </div>
           </div>
         </div>
-        <% end %>
         </li>
       <%end%>
      
