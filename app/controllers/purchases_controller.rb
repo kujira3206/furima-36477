@@ -1,20 +1,17 @@
 class PurchasesController < ApplicationController
 
   def index
-  end
-
-  def new
     @purchase_shipping_address = PurchaseShippingAddress.new
   end
 
   def create
     @purchase_shipping_address = PurchaseShippingAddress.new(purchase_params)
-    if @purchase_shipping_address.valid?
-      @purchase_shipping_address.save
-      redirect_to root_path
-    else
-      render :new
-    end
+    # if @purchase_shipping_address.valid?
+    #   @purchase_shipping_address.save
+    #   redirect_to root_path
+    # else
+    #   render :new
+    # end
   end
 
   private

@@ -12,5 +12,5 @@ class User < ApplicationRecord
   validates :password, format: { with: VALID_PASSWORD_REGEX }
 
   has_many :products
-  # has_many :purchases
+  has_many :purchases
 end
