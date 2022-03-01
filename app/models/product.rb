@@ -6,6 +6,7 @@ class Product < ApplicationRecord
   belongs_to :shipping_area
   belongs_to :ship
   belongs_to :user
+  belongs_to :purchase
   has_one_attached :image
 
   validates :product_name, presence: true

@@ -8,6 +8,8 @@ class PurchaseShippingAddress
     validates :block_number
     validates :building
     validates :tel 
+    validates :user
+    validates :product
   end
   validates :shipping_area_id, numericality: { other_than: 1, message: "can't be blank" }
 
