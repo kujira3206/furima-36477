@@ -13,7 +13,7 @@ class PurchasesController < ApplicationController
 
   def create
     @purchase_shipping_address = PurchaseShippingAddress.new(purchase_params)
-    @product = Product.find(params[:product_id])
+       @product = Product.find(params[:product_id])
     if @purchase_shipping_address.valid?
       pry_item
       @purchase_shipping_address.save
