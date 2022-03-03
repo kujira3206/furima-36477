@@ -5,8 +5,7 @@ RSpec.describe PurchaseShippingAddress, type: :model do
     before do
       product = FactoryBot.create(:product)
       user = FactoryBot.create(:user)
-      @purchase_shipping_address = FactoryBot.build(:purchase_shipping_address, product_id: product.id, user_id: user.id) 
-     
+      @purchase_shipping_address = FactoryBot.build(:purchase_shipping_address, product_id: product.id, user_id: user.id)
     end
 
     context '内容に問題がない場合' do
@@ -28,8 +27,7 @@ RSpec.describe PurchaseShippingAddress, type: :model do
       it 'zip_codeが半角数字、ハイフンを含んでないと保存できないこと' do
         @purchase_shipping_address.zip_code = '1234567'
         @purchase_shipping_address.valid?
-        expect(@purchase_shipping_address.errors.full_messages).to include("Zip code is invalid. Include hyphen(-)")
-
+        expect(@purchase_shipping_address.errors.full_messages).to include('Zip code is invalid. Include hyphen(-)')
       end
       it 'shipping_areaを選択していないと保存できないこと' do
         @purchase_shipping_address.shipping_area_id = '1'
@@ -54,17 +52,17 @@ RSpec.describe PurchaseShippingAddress, type: :model do
       it 'telは10桁以内は保存できない' do
         @purchase_shipping_address.tel = '123456789'
         @purchase_shipping_address.valid?
-        expect(@purchase_shipping_address.errors.full_messages).to include("Tel is invalid")
+        expect(@purchase_shipping_address.errors.full_messages).to include('Tel is invalid')
       end
       it 'telは11桁以上は保存できない' do
         @purchase_shipping_address.tel = '123456789012'
         @purchase_shipping_address.valid?
-        expect(@purchase_shipping_address.errors.full_messages).to include("Tel is invalid")
+        expect(@purchase_shipping_address.errors.full_messages).to include('Tel is invalid')
       end
       it 'telは半角数字以外は保存できない' do
         @purchase_shipping_address.tel = 'あ１２３？'
         @purchase_shipping_address.valid?
-        expect(@purchase_shipping_address.errors.full_messages).to include("Tel is invalid")
+        expect(@purchase_shipping_address.errors.full_messages).to include('Tel is invalid')
       end
       it 'productが紐づいてないと保存できない' do
         @purchase_shipping_address.product_id = nil
@@ -76,12 +74,11 @@ RSpec.describe PurchaseShippingAddress, type: :model do
         @purchase_shipping_address.valid?
         expect(@purchase_shipping_address.errors.full_messages).to include("User can't be blank")
       end
-      it "tokenが空では登録できないこと" do
+      it 'tokenが空では登録できないこと' do
         @purchase_shipping_address.token = nil
         @purchase_shipping_address.valid?
         expect(@purchase_shipping_address.errors.full_messages).to include("Token can't be blank")
       end
-
     end
   end
 end
