@@ -11,7 +11,6 @@ class PurchaseShippingAddress
     validates :product_id
     validates :token
   end
-  validate :building
   validates :shipping_area_id, numericality: { other_than: 1, message: "can't be blank" }
 
   def save
