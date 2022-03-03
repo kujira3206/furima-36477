@@ -6,7 +6,7 @@ class PurchasesController < ApplicationController
     @product = Product.find(params[:product_id])
     if current_user.id == @product.user_id
       redirect_to root_path
-    elsif @purchase_shipping_address.present?
+    elsif @product.purchase.present? 
       redirect_to root_path
     end
   end
